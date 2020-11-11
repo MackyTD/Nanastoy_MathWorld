@@ -12,7 +12,7 @@ you will need to encounter the “math monsters” and “The professor Nanastoy
 There will also be loot boxes that contain both good and bad items,
 so you will have to pray for good fortunes. Can you take on the challenges of
 the math world and make it out alive, or will you die trying, stuck in the
-alternate reality forever...
+alternate reality forever....
 
 Authors : Thanatis Dullayateeraroj < MackyTD : thanatisd2545@gmail.com >
           Muskan Bindal < Muskan9347 : mbindal250902@gmail.com >
