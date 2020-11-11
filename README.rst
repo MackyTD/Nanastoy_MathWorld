@@ -19,7 +19,7 @@ by typing in up, down, left or right when the player is prompted with the questi
 There are also chests along the way that you can choose whether you want to spend
 your valuable "action" on.
 
-All action except for fighting the monsters and the professor will be counted as
+All actions except for fighting the monsters and the professor will be counted as
 an action, and once an action threshold has been reached, the player will be greeted
 with the professor, and the action counter will reset. Decision matter!
 
