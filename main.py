@@ -12,7 +12,7 @@ As for the map, you can spend your valuable actions to determine the distance
 between you and your home, helping you make the right moves.
 
 Once an action threshold has been reached, the player will be greeted
-with the professor, and the action counter will reset. All Decision matter!
+with the professor, and the action counter will reset. All Decisions matter!
 
 Good Luck!
 
