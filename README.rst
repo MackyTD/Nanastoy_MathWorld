@@ -17,11 +17,13 @@ How to play this game?
 You, the player, will spawn at the middle of the math world and need to find
 the randomly generated portal at the corner by navigating through this dimension
 by typing in up, down, left or right when the player is prompted with the question.
-There are also chests along the way that you can choose whether you want to spend
-your valuable "action" on.
+There are also chests and maps along the way that you can choose to interact with it
+and spend your valuable "action" on. You can either get something useful or detrimental
+to your journey, it's all up to luck when opening a chest. As for the map, you
+can spend your valuable time and actions to help determining the distance
+between you and your home, helping you make the right moves.
 
-All actions except for fighting the monsters and the professor will be counted as
-an action, and once an action threshold has been reached, the player will be greeted
-with the professor, and the action counter will reset. Decision matter!
+Once an action threshold has been reached, the player will be greeted
+with the professor, and the action counter will reset. All Decision matter!
 
 Good Luck, and Have Fun!
