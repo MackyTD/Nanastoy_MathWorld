@@ -1,5 +1,6 @@
 import random
 from utils import say
+# you can create a whole new system for loot roll, I have no good way yet
 
 
 def randomLoot(LootPool):

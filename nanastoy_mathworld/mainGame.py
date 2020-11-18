@@ -62,12 +62,13 @@ while PlayerHP > 0:
                 utils.say("Out of time!", "red")
                 break
         if PlayerAns == correctAnswer:
-            PlayerHP += 5
+            PlayerHP += 10
+            # also get a random good item
             if PlayerHP > 60:
                 playerHP = 60
-                difficulty += 1
-                if difficulty > 3:
-                    difficulty = 3
+            difficulty += 1
+            if difficulty > 3:
+                difficulty = 3
         else:
             hitDamage = int(PlayerHP / 4)
             PlayerHP -= hitDamage
@@ -92,6 +93,8 @@ while PlayerHP > 0:
                 utils.say("placeholder dialogue")
                 action = utils.choice("Do you open the chest?", "Yes", "No")
                 if action == "yes":
+                    # roll a random item / debuff, if good, save it to player's
+                    # Inventory
                     ActionCount += 1
                 else:
                     utils.say("")
@@ -140,7 +143,8 @@ while PlayerHP > 0:
                 else:
                     utils.say("placeholder dialogue")
         else:
-            # Player choose use
+            # Player choose use, show items and amount in the inventory as
+            # choices
             ActionCount += 1
 
 end.ending2()

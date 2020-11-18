@@ -1,5 +1,8 @@
-def question(difficulty):
+# someone please come up with the level of these question
+# Then I can create a random structure
 
+
+def question(difficulty):
     if diffculty == 0:
 
     elif diffculty == 1:
