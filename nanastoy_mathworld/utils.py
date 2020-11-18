@@ -4,13 +4,12 @@ repeatedly during the course of the game
 """
 import time
 import random
-# import colorama
+from termcolor import colored
 
 
 def say(text, color):
     time.sleep(1)
-    print(text)
-    # I will add color functionality later
+    print(colored(text, color))
 
 
 def choice(prompt, *options):
@@ -24,7 +23,7 @@ def choice(prompt, *options):
                 return option.lower()
 
 
-def moving(posX, posY):
+def move(posX, posY):
     while True:
         moveOptions = []
         if posY != 7:
@@ -45,41 +44,11 @@ def moving(posX, posY):
                 return direction.lower()
 
 
-def randomLoot():
-    allLoot = []
-    RNG = random.randint(1, 200)
-    if RNG == 1:
-        receivedItem = allLoot[0]
-    if 2 <= RNG <= 10:
-        receivedItem = allLoot[1]
-    # we can repeat this pattern for all the possible loot drop
-    return receivedItem
+def distance(Xa, Xb):
+    return(abs(Xa-Xb))
 
 
-def randomRewards():
-    allLoot = []
-    RNG = random.randint(1, 200)
-    if RNG == 1:
-        receivedItem = allLoot[0]
-    if 2 <= RNG <= 10:
-        receivedItem = allLoot[1]
-    # we can repeat this pattern for all the GOOD loot drop
-    return receivedItem
-
-
-def countdown(sec):
-    while True:
-        time.sleep(1)
-        sec -= 1
-        if sec == 120:
-            print("2 minutes remaining!")
-        elif sec == 60:
-            print("1 minutes remaining!")
-        elif sec == 30:
-            print("30 seconds remaining!")
-        elif 0 < sec <= 10:
-            print(sec)
-        elif sec == 0:
-            time.sleep(0.5)
-            print("times up!")
-            break
+def newRoom():
+    allRooms = ["normal", "chest", "monster", "map"]
+    randomRoom = allRooms[random.randint(0, 3)]
+    return randomRoom
