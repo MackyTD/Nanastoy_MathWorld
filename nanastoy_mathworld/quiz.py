@@ -1,5 +1,6 @@
-# someone please come up with the level of these question
-# Then I can create a random structure
+# say the question, then return the correct answer from the question
+from utils import say
+from random import randint, uniform
 
 
 def question(difficulty):
@@ -10,6 +11,8 @@ def question(difficulty):
     elif difficulty == 2:
 
     elif difficulty == 3:
+
+    elif difficulty == 4:
 
     elif difficulty == "final":
 

@@ -4,12 +4,10 @@ import loot
 import end
 import random
 import quiz
-from time import sleep as wait
-
 
 utils.say("backstory here, until before clicking the link")
-response = utils.choice("Do you click the link in this website?", "Yes", "No")
-if response == "no":
+LinkClick = utils.choice("Do you click the link in this website?", "Yes", "No")
+if LinkClick == "no":
     end.ending1()
 else:
     PlayerPosX = 4
@@ -17,7 +15,7 @@ else:
     PlayerHP = 60
     ActionCount = 0
     ActionLimit = random.randint(5, 8)
-    Inventory = []
+    # Inventory = []
     difficulty = 1
     Portal = ["1,1", "7,1", "1,7", "7,7"]
     spawnedPortal = Portal[random.randint(0, 3)]
@@ -32,17 +30,7 @@ while PlayerHP > 0:
     if movesToWin == 0:
         while True:
             FinalAnswer = quiz.question("final")
-            playerAnswer = input()
-            utils.say("You have 2.5 MINUTES to answer this question!")
-            PlayerAns = input()
-            timer = 150
-            while len(PlayerAns) == 0:
-                wait(1)
-                timer -= 1
-                if timer == 0:
-                    PlayerAns == "not in time"
-                    utils.say("Out of time!", "red")
-                    break
+            playerAnswer = input().strip()
             if playerAnswer == FinalAnswer:
                 end.ending3()
                 break
@@ -51,33 +39,24 @@ while PlayerHP > 0:
     elif ActionCount == ActionLimit:
         utils.say("placeholder")
         correctAnswer = quiz.question(difficulty)
-        utils.say("You have 2 MINUTES to answer this question!")
-        PlayerAns = input()
-        timer = 120
-        while len(PlayerAns) == 0:
-            wait(1)
-            timer -= 1
-            if timer == 0:
-                PlayerAns == "not in time"
-                utils.say("Out of time!", "red")
-                break
+        PlayerAns = input().strip()
         if PlayerAns == correctAnswer:
             PlayerHP += 10
             # also get a random good item
             if PlayerHP > 60:
                 playerHP = 60
             difficulty += 1
-            if difficulty > 3:
-                difficulty = 3
+            if difficulty > 4:
+                difficulty = 4
         else:
             hitDamage = int(PlayerHP / 4)
             PlayerHP -= hitDamage
             utils.say(f"The professor hit you for {hitDamage}")
             utils.say("then it escaped")
     else:
-        response2 = utils.choice("What do you want to do?", "Move",
-                                 "Use acquired items")
-        if response2 == "move":
+        NormalAction = utils.choice("What do you want to do?", "Move",
+                                    "Use acquired items")
+        if NormalAction == "move":
             direction = utils.move(PlayerPosX, PlayerPosY)
             if direction == "left":
                 PlayerPosX -= 1
@@ -91,8 +70,8 @@ while PlayerHP > 0:
             NewRoom = utils.newRoom()
             if NewRoom == "chest":
                 utils.say("placeholder dialogue")
-                action = utils.choice("Do you open the chest?", "Yes", "No")
-                if action == "yes":
+                open = utils.choice("Do you open the chest?", "Yes", "No")
+                if open == "yes":
                     # roll a random item / debuff, if good, save it to player's
                     # Inventory
                     ActionCount += 1
@@ -103,17 +82,8 @@ while PlayerHP > 0:
                 action = utils.choice("Fight or Dodge?", "Fight", "Dodge")
                 if action == "fight":
                     correctAns = quiz.question(0)
-                    utils.say("You have 45 SECONDS to answer this question!")
-                    PlayerAns = input()
-                    timer = 45
-                    while len(PlayerAns) == 0:
-                        wait(1)
-                        timer -= 1
-                        if timer == 0:
-                            PlayerAns == "not in time"
-                            utils.say("Out of time!", "red")
-                            break
-                    if PlayerAns == correctAns:
+                    playerAns = input().strip()
+                    if playerAns == correctAns:
                         PlayerHP += 5
                         if PlayerHP > 60:
                             playerHP = 60
@@ -135,8 +105,8 @@ while PlayerHP > 0:
                     ActionCount += 1
             elif NewRoom == "map":
                 utils.say("placeholder dialogue")
-                action = utils.choice("Do you read the map?", "Yes", "No")
-                if action == "yes":
+                read = utils.choice("Do you read the map?", "Yes", "No")
+                if read == "yes":
                     utils.say(f"You require atleast {movesToWin} moves to"+"\n"
                               + "reach the portal")
                     ActionCount += 2
