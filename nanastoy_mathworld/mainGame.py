@@ -14,7 +14,7 @@ else:
     PlayerPosY = 4
     PlayerHP = 60
     ActionCount = 0
-    ActionLimit = random.randint(3, 5)
+    ActionLimit = random.randint(4, 6)
     Inventory = {
         "Minor Heal": 0,
         "Full Restore": 0,
@@ -53,8 +53,8 @@ while PlayerHP > 0:
             if PlayerHP > 60:
                 playerHP = 60
             difficulty += 1
-            if difficulty > 4:
-                difficulty = 4
+            if difficulty > 3:
+                difficulty = 3
         else:
             hitDamage = int(PlayerHP / 4)
             PlayerHP -= hitDamage
@@ -79,8 +79,7 @@ while PlayerHP > 0:
                 utils.say("placeholder dialogue")
                 open = utils.choice("Do you open the chest?", "Yes", "No")
                 if open == "yes":
-                    # roll a random item / debuff, if good, save it to player's
-                    # Inventory
+                    loot.randomAll()
                     ActionCount += 1
                 else:
                     utils.say("")

@@ -1,6 +1,5 @@
 import random
 from utils import say
-# you can create a whole new system for loot roll, I have no good way yet
 
 
 def randomRewards():
@@ -26,12 +25,16 @@ def randomAll():
         RNG = random.randint(1, 100)
         if RNG == 1:
             debuff = "Cheating"
+            say("dialogue")
         if 2 <= RNG <= 35:
             debuff = "Instant Damage"
+            say("dialogue")
         if 36 <= RNG <= 50:
             debuff = "Increase Difficulty"
+            say("dialogue")
         if 51 <= RNG <= 65:
             debuff = "No Rewards"
+            say("dialogue")
         else:
             debuff = "None"
             say("You found literally nothing in the chest")
@@ -39,6 +42,6 @@ def randomAll():
 
 
 def description(item):
-    if item == " ":
-        say("what does the item do?", "green")
-        # repeat for all usable items
+    if item == "Full Restore":
+        say("description (what does it do?)", "green")
+#  repeat for all items (in randomRewards)

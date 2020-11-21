@@ -1,5 +1,4 @@
 from utils import say
-# Someone please add the story here
 
 
 def ending1():  # didn't click the link
