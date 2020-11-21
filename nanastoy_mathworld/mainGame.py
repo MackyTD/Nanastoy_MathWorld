@@ -30,6 +30,7 @@ else:
     dy = utils.distance(PlayerPosY, PortalPosY)
     movesToWin = dx + dy
     utils.say("story part 2")
+break2 = False
 
 while PlayerHP > 0:
     if movesToWin == 0:
@@ -39,9 +40,12 @@ while PlayerHP > 0:
             playerAnswer = input().strip()
             if playerAnswer == FinalAnswer:
                 end.ending3()
+                break2 = True
                 break
             else:
                 PlayerHP -= 20
+        if break2:
+            break
     elif ActionCount == ActionLimit:
         utils.say("placeholder")
         correctAnswer = quiz.question(difficulty)
@@ -79,7 +83,11 @@ while PlayerHP > 0:
                 utils.say("placeholder dialogue")
                 open = utils.choice("Do you open the chest?", "Yes", "No")
                 if open == "yes":
-                    loot.randomAll()
+                    recievedItem = loot.randomAll()
+                    if recievedItem in Inventory:
+                        Inventory[recievedItem] += 1
+                    else:
+                        pass
                     ActionCount += 1
                 else:
                     utils.say("")
@@ -119,8 +127,29 @@ while PlayerHP > 0:
                 else:
                     utils.say("placeholder dialogue")
         else:
-            # Player choose use, show items and amount in the inventory as
-            # choices
-            ActionCount += 1
+            while True:
+                utils.say("What item do you want to use?")
+                itemChoice = []
+                for item in Inventory:
+                    if Inventory[item] != 0:
+                        itemChoice.append(item)
+                itemChoice.append("Cancel")
+                for numChoice, Item in enumerate(itemChoice):
+                    utils.say(f"{numChoice + 1} : {Item}")
+                playerUse = input().strip()
+                for numChoice, Item in enumerate(itemChoice):
+                    if playerUse == str(numChoice+1) or \
+                       playerUse.lower() == Item.lower():
+                        playerUse = Item.lower()
+                        break
+            if playerUse in Inventory:
+                loot.description(playerUse)
+                confirmation = utils.choice("Are you sure?", "Yes", "No")
+                if confirmation == "yes":
+                    Inventory[playerUse] -= 1
+                    if playerUse == "each item":
+                        "do something"
+
+                    ActionCount += 1
 
 end.ending2()
