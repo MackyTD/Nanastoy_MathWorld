@@ -14,8 +14,13 @@ else:
     PlayerPosY = 4
     PlayerHP = 60
     ActionCount = 0
-    ActionLimit = random.randint(5, 8)
-    # Inventory = []
+    ActionLimit = random.randint(3, 5)
+    Inventory = {
+        "Minor Heal": 0,
+        "Full Restore": 0,
+        "Reduce Difficulty": 0,
+        "Hints": 0
+    }
     difficulty = 1
     Portal = ["1,1", "7,1", "1,7", "7,7"]
     spawnedPortal = Portal[random.randint(0, 3)]
@@ -24,10 +29,11 @@ else:
     dx = utils.distance(PlayerPosX, PortalPosY)
     dy = utils.distance(PlayerPosY, PortalPosY)
     movesToWin = dx + dy
-    utils.say("story")
+    utils.say("story part 2")
 
 while PlayerHP > 0:
     if movesToWin == 0:
+        utils.say("placeholder")
         while True:
             FinalAnswer = quiz.question("final")
             playerAnswer = input().strip()
@@ -42,7 +48,8 @@ while PlayerHP > 0:
         PlayerAns = input().strip()
         if PlayerAns == correctAnswer:
             PlayerHP += 10
-            # also get a random good item
+            rewards = loot.randomRewards()
+            Inventory[rewards] += 1
             if PlayerHP > 60:
                 playerHP = 60
             difficulty += 1
