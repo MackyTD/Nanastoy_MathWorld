@@ -1,7 +1,9 @@
 import random
 from utils import say
-from termcolor import colored
 import pyfiglet
+# There is no need to add colored after say :
+# ex. don't use say(colored('text'))
+# read more about say at utils.py
 
 
 def randomRewards():
@@ -12,8 +14,8 @@ def randomRewards():
         rewards = "Minor Healing"
     else:
         rewards = "Reduce Difficulty"
-    say(colored(f"You found a {rewards} item in the chest!", "green"))
-    say(colored("Seems like it is you lucky day today!", "yellow", "on_green"))
+    say(f"You found a {rewards} item in the chest!", "green")
+    say("Seems like it is your lucky day today!", "yellow", "on_green")
     return rewards
 
 
@@ -26,7 +28,7 @@ def randomAll():
         RNG = random.randint(1, 100)
         if RNG == 1:
             debuff = "Cheating"
-            say(colored("OH MY GOD ... WHAT A SHAME!!"), "red")
+            say("OH MY GOD ... WHAT A SHAME!!", "red")
             say("You have let your math professor down AND yourself")
             cheater = pyfiglet.figlet_format("CHEATER", font="poison")
             say("You are a")
@@ -42,14 +44,16 @@ def randomAll():
             say("dialogue")
         if 51 <= RNG <= 65:
             debuff = "No Rewards"
+            # This is the item that makes the next time that you should've
+            # got something from the professor (answer correctly)
+            # The player would get no rewards
+        else:
+            debuff = "Nothing"
             no_rewards = pyfiglet.figlet_format("NO REWARDS", font="digital")
             say("WELL, you found ...")
             say(f"{no_rewards}", end='')
             say("HAHAHAHA, your bad luck")
             say("You just wasted your action")
-        else:
-            debuff = "None"
-            say("You found literally nothing in the chest")
         return debuff
 
 

@@ -6,10 +6,16 @@ import time
 import random
 from termcolor import colored
 
+# this function will be used a lot in dialogue, Here's how to use it
+# you can use only say("any text", "text color", "the bg color") and it
+# will work, DONT use "say(colored())"
 
-def say(text, color):
+
+def say(text, color="white", bg=None):
     time.sleep(1)
-    print(colored(text, color))
+    print(colored(text, color, bg))  # say function already defined with colors
+# if you dont put any argument after the actual text, the default value will be
+# used (normal white text), so you dont need to fill all 3 args eitherself.
 
 
 def choice(prompt, *options):
