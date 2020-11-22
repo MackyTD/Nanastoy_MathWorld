@@ -4,14 +4,12 @@ from utils import say
 
 def randomRewards():
     RNG = random.randint(1, 100)
-    if 1 <= RNG <= 10:
+    if 1 <= RNG <= 15:
         rewards = "Full Restore"
-    elif 11 <= RNG <= 60:
+    elif 16 <= RNG <= 75:
         rewards = "Minor Healing"
-    elif 61 <= RNG <= 80:
-        rewards = "Reduce Difficulty"
     else:
-        rewards = "Hints"
+        rewards = "Reduce Difficulty"
     say(f"You found a {rewards} item in the chest!", "green")
     return rewards
 

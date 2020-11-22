@@ -19,7 +19,6 @@ else:
         "Minor Heal": 0,
         "Full Restore": 0,
         "Reduce Difficulty": 0,
-        "Hints": 0
     }
     difficulty = 1
     Portal = ["1,1", "7,1", "1,7", "7,7"]
@@ -29,7 +28,10 @@ else:
     dx = utils.distance(PlayerPosX, PortalPosY)
     dy = utils.distance(PlayerPosY, PortalPosY)
     movesToWin = dx + dy
+    NoRewardDebuff = False
     utils.say("story part 2")
+
+cheatBreak = False
 break2 = False
 
 while PlayerHP > 0:
@@ -52,6 +54,7 @@ while PlayerHP > 0:
         PlayerAns = input().strip()
         if PlayerAns == correctAnswer:
             PlayerHP += 10
+            #  check for no reward debuff - active or not?
             rewards = loot.randomRewards()
             Inventory[rewards] += 1
             if PlayerHP > 60:
@@ -87,7 +90,7 @@ while PlayerHP > 0:
                     if recievedItem in Inventory:
                         Inventory[recievedItem] += 1
                     else:
-                        pass
+                        pass  # add effects for debuff here
                     ActionCount += 1
                 else:
                     utils.say("")
@@ -147,9 +150,13 @@ while PlayerHP > 0:
                 confirmation = utils.choice("Are you sure?", "Yes", "No")
                 if confirmation == "yes":
                     Inventory[playerUse] -= 1
-                    if playerUse == "each item":
+                    if playerUse == "item":
                         "do something"
-
+                    elif playerUse == "another item":
+                        pass
+                    elif playerUse == "last item":
+                        pass
+# add action for all usable items : minor HP, Full Restore and reduce current difficulty
                     ActionCount += 1
 
 end.ending2()
