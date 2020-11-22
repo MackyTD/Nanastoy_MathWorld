@@ -26,7 +26,14 @@ def randomAll():
         RNG = random.randint(1, 100)
         if RNG == 1:
             debuff = "Cheating"
-            say("dialogue")
+            say(colored("OH MY GOD ... WHAT A SHAME!!"), "red")
+            say("You have let your math professor down AND yourself")
+            cheater = pyfiglet.figlet_format("CHEATER", font="poison")
+            say("You are a")
+            say(f"{cheater}")
+            say("You have been caught doing this shameful act!")
+            say("You have failed the challenge of Nanastoy Math World! "
+                "Now you are stuck in this math world forever")
         if 2 <= RNG <= 35:
             debuff = "Instant Damage"
             say("dialogue")
