@@ -24,6 +24,6 @@ can spend your valuable time and actions to help determining the distance
 between you and your home, helping you make the right moves.
 
 Once an action threshold has been reached, the player will be greeted
-with the professor, and the action counter will reset. All Decision matter!
+with the professor, and the action counter will reset. All Decisions matter!
 
 Good Luck, and Have Fun!

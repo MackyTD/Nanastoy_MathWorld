@@ -1,5 +1,7 @@
 import random
 from utils import say
+from termcolor import colored
+import pyfiglet
 
 
 def randomRewards():
@@ -10,7 +12,8 @@ def randomRewards():
         rewards = "Minor Healing"
     else:
         rewards = "Reduce Difficulty"
-    say(f"You found a {rewards} item in the chest!", "green")
+    say(colored(f"You found a {rewards} item in the chest!", "green"))
+    say(colored("Seems like it is you lucky day today!", "yellow", "on_green"))
     return rewards
 
 
@@ -32,7 +35,11 @@ def randomAll():
             say("dialogue")
         if 51 <= RNG <= 65:
             debuff = "No Rewards"
-            say("dialogue")
+            no_rewards = pyfiglet.figlet_format("NO REWARDS", font="digital")
+            say("WELL, you found ...")
+            say(f"{no_rewards}", end='')
+            say("HAHAHAHA, your bad luck")
+            say("You just wasted your action")
         else:
             debuff = "None"
             say("You found literally nothing in the chest")

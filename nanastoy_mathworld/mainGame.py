@@ -156,7 +156,8 @@ while PlayerHP > 0:
                         pass
                     elif playerUse == "last item":
                         pass
-# add action for all usable items : minor HP, Full Restore and reduce current difficulty
+# add action for all usable items: minor HP, Full Restore and reduce current
+# difficulty
                     ActionCount += 1
 
 end.ending2()
