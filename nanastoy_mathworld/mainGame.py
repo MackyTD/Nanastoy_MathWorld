@@ -4,6 +4,7 @@ import loot
 import end
 import random
 import quiz
+import pyfiglet
 
 utils.say("You are studying for the upcoming calculus exam tomorrow")
 utils.say("You are struggling with it so much")
@@ -179,6 +180,16 @@ else:
                             playerHP += randomHeal
                         elif playerUse == "Full Restore":
                             playerHP = 45
+                            full_restore = pyfiglet.figlet_format("Congrats",
+                                                                  font="epic")
+                            utils.say("You have restored all your health"
+                                      "points!!!")
+                            utils.say(f"{full_restore}", end='')
+                            utils.say("Now be cautious... ")
+                            utils.say("You have gotten another life... "
+                                      "Live it wisely")
+                            utils.say("Stay focused and continue your journey"
+                                      "...")
                         elif playerUse == "Reduce Difficulty":
                             if difficulty > 1:
                                 difficulty -= 1
