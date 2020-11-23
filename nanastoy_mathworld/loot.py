@@ -7,11 +7,11 @@ import pyfiglet
 
 
 def randomRewards():
-    RNG = random.randint(1, 100)
-    if 1 <= RNG <= 15:
+    RNG = random.randint(1, 50)
+    if 1 <= RNG <= 5:
         rewards = "Full Restore"
-    elif 16 <= RNG <= 75:
-        rewards = "Minor Healing"
+    elif 6 <= RNG <= 40:
+        rewards = "Minor Heal"
     else:
         rewards = "Reduce Difficulty"
     say(f"You found a {rewards} item in the chest!", "green")
@@ -28,14 +28,7 @@ def randomAll():
         RNG = random.randint(1, 100)
         if RNG == 1:
             debuff = "Cheating"
-            say("OH MY GOD ... WHAT A SHAME!!", "red")
-            say("You have let your math professor down AND yourself")
-            cheater = pyfiglet.figlet_format("CHEATER", font="poison")
-            say("You are a")
-            say(f"{cheater}")
-            say("You have been caught doing this shameful act!")
-            say("You have failed the challenge of Nanastoy Math World! "
-                "Now you are stuck in this math world forever")
+            #  No need for dialogue here, we can just link it to end.ending4
         if 2 <= RNG <= 35:
             debuff = "Instant Damage"
             say("dialogue")
@@ -43,7 +36,7 @@ def randomAll():
             debuff = "Increase Difficulty"
             say("dialogue")
         if 51 <= RNG <= 65:
-            debuff = "No Rewards"
+            debuff = "No Rewards Debuff"
             # This is the item that makes the next time that you should've
             # got something from the professor (answer correctly)
             # The player would get no rewards
@@ -60,4 +53,7 @@ def randomAll():
 def description(item):
     if item == "Full Restore":
         say("description (what does it do?)", "green")
-#  repeat for all items (in randomRewards)
+    if item == "Minor Heal":
+        say("description", "green")
+    if item == "Reduce Difficulty":
+        say("discription", "green")
