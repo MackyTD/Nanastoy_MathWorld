@@ -35,7 +35,9 @@ else:
     dy = utils.distance(PlayerPosY, PortalPosY)
     movesToWin = dx + dy
     NoRewardDebuff = False
-    utils.say("story part 2")
+    utils.say("----------------------"
+              "     STORY PART 2     "
+              "----------------------")
 
 # cheatBreak = False
 end3break = False
