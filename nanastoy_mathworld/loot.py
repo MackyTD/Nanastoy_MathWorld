@@ -41,8 +41,7 @@ def randomAll():
             say("I hope you are a good mathematician or atleast have good"
                 "COMMON SENSE")
             say("If not, prepare yourself to face a nightmarishly difficult"
-                "question in your next encounter with the math monster or"
-                "the professor")
+                "question in your next encounter with the professor")
             say("Because your reward is to get a harder question next time")
             say("Hahaha, don't worry you've got this")
         if 51 <= RNG <= 65:
