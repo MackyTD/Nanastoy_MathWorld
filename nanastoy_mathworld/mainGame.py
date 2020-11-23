@@ -5,6 +5,7 @@ import end
 import random
 import quiz
 import pyfiglet
+import time
 
 utils.say("You are studying for the upcoming calculus exam tomorrow")
 utils.say("You are struggling with it so much")
@@ -39,7 +40,26 @@ else:
     utils.say("----------------------"
               "     STORY PART 2     "
               "----------------------")
-
+    utils.say("Welcome to the Nanastoy's math world - the ultimate math"
+              " universe")
+    utils.say("What name should the math world know you as?")
+    player_name = input()
+    if player_name == "":
+        player_name = "Lazy"
+    utils.say(f"Hello {player_name}! Hope you are ready for your math"
+              " journey that you are about to embark")
+    utils.say("Before you start I wanted to ask you a question?")
+    utils.say("What do you call a mathematician who spent all summer"
+              " at the beach?")
+    time.sleep(3)
+    utils.say("Still guessing ... Let me tell you - A tan gent")
+    time.sleep(1)
+    utils.say(f"Hahaha, hope you got that ... Anyways {player_name} "
+              "Let's not waste more time... ")
+    utils.say("All I can do is to wish you luck and hope for you to"
+              " accomplish your mission")
+    utils.say("Let's begin ... ")
+    time.sleep(1)
     # cheatBreak = False
     end3break = False
 

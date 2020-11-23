@@ -63,7 +63,7 @@ def description(item):
     if item == "Full Restore":
         say("Do you want to suddenly feel super energetic?", "green")
         say("Do you want the power to conquer this whole math world?")
-        say("Did you know this power was with you ever since?"
+        say("Did you know this power was with you ever since?")
         say("Wondering what power?")
         say("If you still didn't realise it. Let me tell you...", "blue")
         say("Its the FULL RESTORE power, which will restore all your health"
