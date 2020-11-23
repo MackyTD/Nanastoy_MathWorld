@@ -157,7 +157,10 @@ else:
                         if playerUse == str(numChoice+1) or \
                            playerUse.lower() == Item.lower():
                             playerUse = Item
+                            useBreak = True
                             break
+                    if useBreak:
+                        break
                 if playerUse in Inventory:
                     loot.description(playerUse)
                     confirmation = utils.choice("Are you sure?", "Yes", "No")
@@ -176,7 +179,7 @@ else:
                                           "difficulty possible")
                                 utils.say("But there will be no refunds of"
                                           "your item that you just used")
-    # you canchange the dialogue a bit
+    # you can change the dialogue a bit
                         ActionCount += 1
 
     end.ending2()
