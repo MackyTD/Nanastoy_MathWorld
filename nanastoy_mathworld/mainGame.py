@@ -6,11 +6,12 @@ import random
 import quiz
 
 utils.say("You are studying for the upcoming calculus exam tomorrow")
-    say("You are struggling with it so much")
-    say("You decided to lookup for the practice problem on the internet")
-    say("You spend a very long time looking for a good practice website")
-    say("You found a mysterious website called 'Nanastoy's math world'")
-    say("You thought to yourself 'This is kinda werid, should I visit this?'")
+utils.say("You are struggling with it so much")
+utils.say("You decided to lookup for the practice problem on the internet")
+utils.say("You spend a very long time looking for a good practice website")
+utils.say("You found a mysterious website called 'Nanastoy's math world'")
+utils.say("You thought to yourself 'This is kinda werid, should I visit this?'"
+          )
 LinkClick = utils.choice("Click the link to this website?", "Yes", "No")
 if LinkClick == "no":
     end.ending1()

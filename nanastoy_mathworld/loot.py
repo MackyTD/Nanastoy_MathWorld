@@ -1,9 +1,6 @@
 import random
 from utils import say
 import pyfiglet
-# There is no need to add colored after say :
-# ex. don't use say(colored('text'))
-# read more about say at utils.py
 
 
 def randomRewards():
@@ -28,13 +25,26 @@ def randomAll():
         RNG = random.randint(1, 100)
         if RNG == 1:
             debuff = "Cheating"
-            #  No need for dialogue here, we can just link it to end.ending4
         if 2 <= RNG <= 35:
             debuff = "Instant Damage"
-            say("dialogue")
+            say("You just stepped on the path of self-harm!")
+            say("Don't get what I am saying?... "
+                "Well you YOURSELF caused your health points to decrease")
+            say("You recieved instantaneous damage from this unpredictable"
+                "loot box")
+            say("Now pray that your health points don't get too low or else..."
+                )
         if 36 <= RNG <= 50:
             debuff = "Increase Difficulty"
-            say("dialogue")
+            say("Ooops", "red")
+            say("I feel extremely sorry for you...")
+            say("I hope you are a good mathematician or atleast have good"
+                "COMMON SENSE")
+            say("If not, prepare yourself to face a nightmarishly difficult"
+                "question in your next encounter with the math monster or"
+                "the professor")
+            say("Because your reward is to get a harder question next time")
+            say("Hahaha, don't worry you've got this")
         if 51 <= RNG <= 65:
             debuff = "No Rewards Debuff"
             # This is the item that makes the next time that you should've
@@ -42,7 +52,7 @@ def randomAll():
             # The player would get no rewards
         else:
             debuff = "Nothing"
-            no_rewards = pyfiglet.figlet_format("NO REWARDS", font="digital")
+            no_rewards = pyfiglet.figlet_format("NOTHING", font="digital")
             say("WELL, you found ...")
             say(f"{no_rewards}", end='')
             say("HAHAHAHA, your bad luck")
