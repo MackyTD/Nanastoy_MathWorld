@@ -37,9 +37,9 @@ else:
     dy = utils.distance(PlayerPosY, PortalPosY)
     movesToWin = dx + dy
     NoRewardDebuff = False
-    utils.say("----------------------"
-              "     STORY PART 2     "
-              "----------------------")
+    utils.say("------------------------------" + "\n"
+              "       Hello  Stanger!        " + "\n"
+              "------------------------------")
     utils.say("Welcome to the Nanastoy's math world - the ultimate math"
               " universe")
     utils.say("What name should the math world know you as?")
@@ -82,9 +82,12 @@ else:
             correctAnswer = quiz.question(difficulty)
             PlayerAns = input().strip()
             if PlayerAns == correctAnswer:
+                utils.say("something something you got this correctly")
+                #  mention that next time should be a little harder
                 PlayerHP += 10
                 if PlayerHP > 45:
                     playerHP = 45
+                utils.say(f"Your current HP is now {PlayerHP}")
                 if NoRewardDebuff is False:
                     rewards = loot.randomRewards()
                     Inventory[rewards] += 1
@@ -96,6 +99,8 @@ else:
                 PlayerHP -= hitDamage
                 utils.say(f"The professor hit you for {hitDamage}")
                 utils.say("then it escaped")
+                time.sleep(0.5)
+                utils.say(f"Your current HP is now {PlayerHP}")
             ActionCount = 0
             ActionLimit = random.randint(5, 7)
 
@@ -129,7 +134,8 @@ else:
                                 difficulty += 1
                         elif recievedItem == "Instant Damage":
                             instantDMG = random.randint(5, 10)
-                            playerHP -= instantDMG
+                            PlayerHP -= instantDMG
+                            utils.say(f"Your current HP is now {PlayerHP}")
                         elif recievedItem == "No Reward Debuff":
                             NoRewardDebuff = True
                         ActionCount += 1
@@ -144,12 +150,14 @@ else:
                         if playerAns == correctAns:
                             PlayerHP += 5
                             if PlayerHP > 60:
-                                playerHP = 60
+                                PlayerHP = 60
                         else:
                             hitDamage = random.randint(6, 8)
                             PlayerHP -= hitDamage
                             utils.say(f"The monsters hit you for {hitDamage}")
                             utils.say("then it escaped")
+                            time.sleep(0.5)
+                            utils.say(f"Your current HP is now {PlayerHP}")
                     else:
                         a = random.randint(1, 3)
                         if a == 1:
@@ -161,6 +169,8 @@ else:
                             utils.say("The monsters hit you"
                                       f"for {monsHitDamage}")
                             utils.say("then it escaped")
+                            time.sleep(0.5)
+                            utils.say(f"Your current HP is now {PlayerHP}")
                         ActionCount += 1
                 elif NewRoom == "map":
                     utils.say("placeholder dialogue")
@@ -197,9 +207,10 @@ else:
                         Inventory[playerUse] -= 1
                         if playerUse == "Minor Heal":
                             randomHeal = random.randint(4, 8)
-                            playerHP += randomHeal
+                            PlayerHP += randomHeal
+                            utils.say(f"Your current HP is now {PlayerHP}")
                         elif playerUse == "Full Restore":
-                            playerHP = 45
+                            PlayerHP = 45
                             full_restore = pyfiglet.figlet_format("Congrats",
                                                                   font="epic")
                             utils.say("You have restored all your health"
