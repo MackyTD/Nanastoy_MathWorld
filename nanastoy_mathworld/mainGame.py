@@ -95,7 +95,7 @@ else:
             else:
                 hitDamage = int(PlayerHP / 4)
                 PlayerHP -= hitDamage
-                utils.say(f"The professor hit you for {hitDamage}")
+                utils.say(f"The professor hit you for {hitDamage}", "red")
                 utils.say("then he escaped")
                 time.sleep(0.5)
                 utils.say(f"Your current HP is now {PlayerHP}")
@@ -202,19 +202,23 @@ else:
                         break
                 if playerUse in Inventory:
                     loot.description(playerUse)
-                    confirmation = utils.choice("Are you sure?", "Yes", "No")
+                    confirmation = utils.choice("Are you sure you want to use"
+                                                "this item ?", "Yes", "No")
                     if confirmation == "yes":
                         Inventory[playerUse] -= 1
                         if playerUse == "Minor Heal":
                             randomHeal = random.randint(4, 8)
                             PlayerHP += randomHeal
                             utils.say(f"Your current HP is now {PlayerHP}")
+                            utils.say("Hope you feeling a little bit better"
+                                      "and re-vitalised")
+                            utils.say("Don't lose hope, you can do this")
                         elif playerUse == "Full Restore":
                             PlayerHP = 45
                             full_restore = pyfiglet.figlet_format("Congrats",
                                                                   font="epic")
                             utils.say("You have restored all your health"
-                                      "points!!!")
+                                      "points!!!", "green")
                             time.sleep(1)
                             print(f"{full_restore}", end='')
                             utils.say("Now be cautious... ")
@@ -225,11 +229,21 @@ else:
                         elif playerUse == "Reduce Difficulty":
                             if difficulty > 1:
                                 difficulty -= 1
+                                utils.say("You don't like challenges"
+                                          "don't you?")
+                                utils.say("Hmm... Anyways its better to study"
+                                          "smart than hard right?")
+                                utils.say("You are now on a easy road kid")
+                                utils.say("I hope this easy can get"
+                                          "you out of here")
                             else:
                                 utils.say("You are already at the lowest"
                                           "difficulty possible")
                                 utils.say("But there will be no refunds of"
                                           "your item that you just used")
+                                utils.say("Hahahahah"
+                                          "\n seems like destiny just played"
+                                          "you")
     # you can change the dialogue a bit
                         ActionCount += 1
 
