@@ -29,21 +29,21 @@ def question(difficulty):
             say(f"A pizza shop prepared {varF} Pepperoni Pizza and {varG}"
                 " Margherita Pizza." + "\n" + "Few customers enter and bought"
                 f" a total of {varH} Pepperoni Pizzas")
-            say("How many Pepporoni Pizza do this shop have left?")
+            say("How many Pepporoni Pizza 🍕 do this shop have left?")
             correctAnswer = varF - varH
         elif varient_0 == 4:
             varI = randint(180, 230)
             varJ = randint(120, 175)
             say("Bob has a big ant farm, and he decided to sell some of it")
             say(f"If he started with {varI} ants and sold {varJ}")
-            say("How many ants do he have left")
+            say("How many ants 🐜 do he have left")
             correctAnswer = varI - varJ
         else:
             varK = randint(120, 200)
             varL = randint(150, 200)
             say(f"You sold a total of {varK} chocolate chips cookies and"
                 f"{varL} vanilla cookie")
-            say("How many cookie do you sold in total?")
+            say("How many cookie 🍪 do you sold in total?")
             correctAnswer = varK + varL
 
     elif difficulty == 1:  # basic multiply/division
@@ -60,7 +60,7 @@ def question(difficulty):
             VarD = round(uniform(6, 8), 2)
             say(f"Thomas bought {VarC} dozen of donuts, each box costs"
                 f"{VarD} dollars")
-            say("How much donuts does Thomas have?")
+            say("How much donuts 🍩 does Thomas have?")
             correctAnswer = 12 * VarC
         else:
             VarE = randint(20, 30)
@@ -68,7 +68,7 @@ def question(difficulty):
             say(f"There's a total of {VarF} candies, and there are {VarE}"
                 " student in the class")
             say("If the candy is split evenly to all students, how much candy"
-                " will each of the student get?")
+                " 🍬 will each of the student get?")
             correctAnswer = VarF / VarE
 
     elif difficulty == 2:  # decimals / division with some roundings
