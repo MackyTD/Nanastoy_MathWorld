@@ -14,14 +14,17 @@ def question(difficulty):
             say("How many little lambs does Mary have in total?")
             correctAnswer = varA
         elif varient_0 == 2:
-            varC, varD, varE = randint(12, 37)
+            varC = randint(10, 26)
+            varD = randint(22, 35)
+            varE = randint(12, 37)
             say(f"Jake have {varC} books at home. He went out and borrow"
                 f" {varD} more books from the library." + "\n"
                 f"He then buy {varE} more books from the shop")
             say("How many books does Jake have in total?")
             correctAnswer = varC + varD + varE
         elif varient_0 == 3:
-            varF, varG = randint(12, 15)
+            varF = randint(13, 20)
+            varG = randint(9, 17)
             varH = randint(5, 10)
             say(f"A pizza shop prepared {varF} Pepperoni Pizza and {varG}"
                 "Margherita Pizza." + "\n" + "Few customers enter and bought"
@@ -29,15 +32,15 @@ def question(difficulty):
             say("How many Pepporoni Pizza do this shop have left?")
             correctAnswer = varF - varH
         elif varient_0 == 4:
-            varI, varJ = randint(130, 150)
-            if varI < varJ:
-                varJ += randint(30, 55)
+            varI = randint(180, 230)
+            varJ = randint(120, 175)
             say("Bob has a big ant farm, and he decided to sell some of it"
-                f"If he started with {varI} ants and sold {varH}")
+                f"If he started with {varI} ants and sold {varJ}")
             say("How many ants do he have left")
             correctAnswer = varI - varJ
         else:
-            varK, varL = randint(150, 200)
+            varK = randint(120, 200)
+            varL = randint(150, 200)
             say(f"You sold a total of {varK} chocolate chips cookies and"
                 f"{varL} vanilla cookie")
             say("How many cookie do you sold in total?")
@@ -122,7 +125,10 @@ def question(difficulty):
                 "(answer in a multiple of pi)")
             correctAnswer = 2*Var_A
         else:
-            A, B, C, x = randint(1, 5)
+            A = randint(1, 5)
+            B = randint(-3, 7)
+            C = randint(-8, 17)
+            x = randint(0, 6)
             say(f"Given f(x) is equal to {A}x^2 + {B}x + {C}")
             say(f"What is the slope at x = {x}")
             correctAnswer = 2*A*x + B
