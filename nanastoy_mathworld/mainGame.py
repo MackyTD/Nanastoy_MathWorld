@@ -33,9 +33,6 @@ else:
     spawnedPortal = Portal[random.randint(0, 3)]
     PortalPosX = int(spawnedPortal.split(",")[0])
     PortalPosY = int(spawnedPortal.split(",")[1])
-    dx = utils.distance(PlayerPosX, PortalPosY)
-    dy = utils.distance(PlayerPosY, PortalPosY)
-    movesToWin = dx + dy
     NoRewardDebuff = False
     utils.say("------------------------------" + "\n"
               "       Hello  Stanger!        " + "\n"
@@ -64,11 +61,14 @@ else:
     end3break = False
 
     while PlayerHP > 0:
+        dx = utils.distance(PlayerPosX, PortalPosY)
+        dy = utils.distance(PlayerPosY, PortalPosY)
+        movesToWin = dx + dy
         if movesToWin == 0:
             utils.say("placeholder")
             while True:
                 FinalAnswer = quiz.question("final")
-                playerAnswer = input().strip()
+                playerAnswer = float(input().strip())
                 if playerAnswer == FinalAnswer:
                     end.ending3()
                     end3break = True
@@ -80,7 +80,7 @@ else:
         elif ActionCount == ActionLimit:
             utils.say("placeholder")
             correctAnswer = quiz.question(difficulty)
-            PlayerAns = input().strip()
+            PlayerAns = float(input().strip())
             if PlayerAns == correctAnswer:
                 utils.say("something something you got this correctly")
                 #  mention that next time should be a little harder
@@ -98,7 +98,7 @@ else:
                 hitDamage = int(PlayerHP / 4)
                 PlayerHP -= hitDamage
                 utils.say(f"The professor hit you for {hitDamage}")
-                utils.say("then it escaped")
+                utils.say("then he escaped")
                 time.sleep(0.5)
                 utils.say(f"Your current HP is now {PlayerHP}")
             ActionCount = 0
@@ -146,7 +146,7 @@ else:
                     action = utils.choice("Fight or Dodge?", "Fight", "Dodge")
                     if action == "fight":
                         correctAns = quiz.question(0)
-                        playerAns = input().strip()
+                        playerAns = float(input().strip())
                         if playerAns == correctAns:
                             PlayerHP += 5
                             if PlayerHP > 60:
@@ -167,7 +167,7 @@ else:
                             monsHitDamage = random.randint(6, 9)
                             PlayerHP -= monsHitDamage
                             utils.say("The monsters hit you"
-                                      f"for {monsHitDamage}")
+                                      f" for {monsHitDamage} damage")
                             utils.say("then it escaped")
                             time.sleep(0.5)
                             utils.say(f"Your current HP is now {PlayerHP}")
@@ -181,6 +181,8 @@ else:
                         ActionCount += 2
                     else:
                         utils.say("placeholder dialogue")
+                else:  # nothing room
+                    utils.say("placeholder dialogue")
             else:
                 while True:
                     utils.say("What item do you want to use?")
@@ -215,7 +217,8 @@ else:
                                                                   font="epic")
                             utils.say("You have restored all your health"
                                       "points!!!")
-                            utils.say(f"{full_restore}", end='')
+                            time.sleep(1)
+                            print(f"{full_restore}", end='')
                             utils.say("Now be cautious... ")
                             utils.say("You have gotten another life... "
                                       "Live it wisely")

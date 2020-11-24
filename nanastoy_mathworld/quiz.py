@@ -95,11 +95,11 @@ def question(difficulty):
     elif difficulty == 3:
         varient_3 = randint(1, 3)
         if varient_3 == 1:
-            var_a = randint(1, 3)
-            var_b = randint(2, 5)
-            say(f"What is the sample space of rolling {var_a} normal dices"
-                f" and flipping {var_b} normal coins at once?"
-            correctAnswer = 6**var_a * 2**var_b
+            var_a = round(uniform(1, 10), 1)
+            var_b = round(uniform(3, 8), 2)
+            say(f"What is the slope of a line that pass through the origin"
+                f" and the point {var_a}, {var_b}?")
+            correctAnswer = var_b / var_a
         elif varient_3 == 2:
             var_c = randint(30, 40)
             var_d = var_c + 1
@@ -108,22 +108,22 @@ def question(difficulty):
             say("what is the the sum of both integers?")
             correctAnswer = var_c + var_d
         else:
-            var_e, var_f = randint(-8,8)
+            var_e, var_f = randint(-8, 8)
             say("What is the sum of all the coefficients of the quadratic"
                 f" equation that have {var_e} and {var_f} as answers?")
             correctAnswer = (var_e * var_f) - var_e - var_f + 1
     elif difficulty == "final":
         varient_f = randint(1, 2)
         if varient_f == 1:
-            Var_A = round(uniform(3,8), 2)
+            Var_A = round(uniform(3, 8), 2)
             say(f"The radius of a circle is incresing at the rate of {Var_A}"
                 " cm/s.")
             say("What is the rate of which the circumference increases?"
                 "(answer in a multiple of pi)")
             correctAnswer = 2*Var_A
         else:
-            A, B, C, x = randint(1,5)
+            A, B, C, x = randint(1, 5)
             say(f"Given f(x) is equal to {A}x^2 + {B}x + {C}")
             say(f"What is the slope at x = {x}")
             correctAnswer = 2*A*x + B
-    return correctAnswer
+    return float(correctAnswer)

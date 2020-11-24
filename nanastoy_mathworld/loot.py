@@ -1,6 +1,7 @@
 import random
 from utils import say
 import pyfiglet
+import time
 
 
 def randomRewards():
@@ -25,7 +26,7 @@ def randomAll():
         RNG = random.randint(1, 100)
         if RNG == 1:
             debuff = "Cheating"
-        if 2 <= RNG <= 35:
+        elif 2 <= RNG <= 35:
             debuff = "Instant Damage"
             say("You just stepped on the path of self-harm!")
             say("Don't get what I am saying?... "
@@ -34,7 +35,7 @@ def randomAll():
                 "loot box")
             say("Now pray that your health points don't get too low or else..."
                 )
-        if 36 <= RNG <= 50:
+        elif 36 <= RNG <= 50:
             debuff = "Increase Difficulty"
             say("Ooops", "red")
             say("I feel extremely sorry for you...")
@@ -44,7 +45,7 @@ def randomAll():
                 "question in your next encounter with the professor")
             say("Because your reward is to get a harder question next time")
             say("Hahaha, don't worry you've got this")
-        if 51 <= RNG <= 65:
+        elif 51 <= RNG <= 65:
             debuff = "No Rewards Debuff"
             # This is the item that makes the next time that you should've
             # got something from the professor (answer correctly)
@@ -53,7 +54,8 @@ def randomAll():
             debuff = "Nothing"
             no_rewards = pyfiglet.figlet_format("NOTHING", font="digital")
             say("WELL, you found ...")
-            say(f"{no_rewards}", end='')
+            time.sleep(1)
+            print(f"{no_rewards}", end='')
             say("HAHAHAHA, your bad luck")
             say("You just wasted your action")
         return debuff
