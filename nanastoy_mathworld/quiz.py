@@ -1,4 +1,3 @@
-# say the question, then return the correct answer from the question
 from utils import say
 from random import randint, uniform
 import math
@@ -93,18 +92,38 @@ def question(difficulty):
             say("How much did it cost them?")
             correctAnswer = VarJ * VarK
 
-    elif difficulty == 3:  # Needs some formula
+    elif difficulty == 3:
         varient_3 = randint(1, 3)
         if varient_3 == 1:
-            pass
+            var_a = randint(1, 3)
+            var_b = randint(2, 5)
+            say(f"What is the sample space of rolling {var_a} normal dices"
+                f" and flipping {var_b} normal coins at once?"
+            correctAnswer = 6**var_a * 2**var_b
         elif varient_3 == 2:
-            pass
+            var_c = randint(30, 40)
+            var_d = var_c + 1
+            say("Two positive, consecutive integers have a product of "
+                f"{var_c*var_d}")
+            say("what is the the sum of both integers?")
+            correctAnswer = var_c + var_d
         else:
-            pass
+            var_e, var_f = randint(-8,8)
+            say("What is the sum of all the coefficients of the quadratic"
+                f" equation that have {var_e} and {var_f} as answers?")
+            correctAnswer = (var_e * var_f) - var_e - var_f + 1
     elif difficulty == "final":
         varient_f = randint(1, 2)
         if varient_f == 1:
-            pass
+            Var_A = round(uniform(3,8), 2)
+            say(f"The radius of a circle is incresing at the rate of {Var_A}"
+                " cm/s.")
+            say("What is the rate of which the circumference increases?"
+                "(answer in a multiple of pi)")
+            correctAnswer = 2*Var_A
         else:
-            pass
+            A, B, C, x = randint(1,5)
+            say(f"Given f(x) is equal to {A}x^2 + {B}x + {C}")
+            say(f"What is the slope at x = {x}")
+            correctAnswer = 2*A*x + B
     return correctAnswer
