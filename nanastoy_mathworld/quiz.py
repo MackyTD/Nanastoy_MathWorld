@@ -1,6 +1,7 @@
 # say the question, then return the correct answer from the question
 from utils import say
 from random import randint, uniform
+import math
 
 
 def question(difficulty):
@@ -43,31 +44,64 @@ def question(difficulty):
             say("How many cookie do you sold in total?")
             correctAnswer = varK + varL
 
-    elif difficulty == 1:  # 3 questions varients
+    elif difficulty == 1:  # basic multiply/division
         varient_1 = randint(1, 3)
         if varient_1 == 1:
-            pass
+            VarA = randint(4, 8)
+            VarB = randint(42, 60)
+            say(f"Jerome purchased {VarA} bags of candy, each one have {VarB}"
+                " pieces of candy")
+            say("How many pieces of candy does Jerome has?")
+            correctAnswer = VarA * VarB
         elif varient_1 == 2:
-            pass
+            VarC = randint(3, 7)
+            VarD = round(uniform(6, 8), 2)
+            say(f"Thomas bought {VarC} dozen of donuts, each box costs"
+                f"{VarD} dollars")
+            say("How much donuts does Thomas have?")
+            correctAnswer = 12 * VarC
         else:
-            pass
-    elif difficulty == 2:  # 3 questions varients
+            VarE = randint(20, 30)
+            VarF = randint(12, 25) * VarE
+            say(f"There's a total of {VarF} candies, and there are {VarE}"
+                " student in the class")
+            say("If the candy is split evenly to all students, how much candy"
+                " will each of the student get?")
+            correctAnswer = VarF / VarE
+
+    elif difficulty == 2:  # decimals / division with some roundings
         varient_2 = randint(1, 3)
         if varient_2 == 1:
-            pass
+            VarG = randint(400, 600)
+            VarH = randint(30, 40)
+            say(f"There are {VarG} people waiting to board the SpaceX"
+                f" Sentinal-6, which can contain {VarH} amount of people")
+            say("What is the minimum roundtrips does the Sentinal-6 need"
+                " to be enough for all the people")
+            correctAnswer = math.ceil(VarG / VarH)
         elif varient_2 == 2:
-            pass
+            VarI = round(uniform(2, 9), 1)
+            say(f"If an unknown beverage has a total of {VarI} grams of sugar")
+            say("How many can of this drinks can Peter take before"
+                " getting over 100 grams of sugar limit that he set?")
+            correctAnswer = math.floor(100 / VarI)
         else:
-            pass
-    elif difficulty == 3:  # 4 questions varients
-        varient_3 = randint(1, 4)
+            VarJ = randint(3, 6)
+            VarK = round(uniform(5, 8), 2)
+            say(f" A burger costs {VarK} dollars a piece. Sam and his friends"
+                f" bought a total of {VarJ} pieces in total")
+            say("How much did it cost them?")
+            correctAnswer = VarJ * VarK
+
+    elif difficulty == 3:  # Needs some formula
+        varient_3 = randint(1, 3)
         if varient_3 == 1:
             pass
         elif varient_3 == 2:
             pass
         else:
             pass
-    elif difficulty == "final":  # some sort of BASIC calculus, 2 varient
+    elif difficulty == "final":
         varient_f = randint(1, 2)
         if varient_f == 1:
             pass
