@@ -203,7 +203,7 @@ else:
                 if playerUse in Inventory:
                     loot.description(playerUse)
                     confirmation = utils.choice("Are you sure you want to use"
-                                                "this item ?", "Yes", "No")
+                                                " this item ?", "Yes", "No")
                     if confirmation == "yes":
                         Inventory[playerUse] -= 1
                         if playerUse == "Minor Heal":
@@ -218,7 +218,7 @@ else:
                             full_restore = pyfiglet.figlet_format("Congrats",
                                                                   font="epic")
                             utils.say("You have restored all your health"
-                                      "points!!!", "green")
+                                      " points!!!", "green")
                             time.sleep(1)
                             print(f"{full_restore}", end='')
                             utils.say("Now be cautious... ")

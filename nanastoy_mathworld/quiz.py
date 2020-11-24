@@ -66,7 +66,7 @@ def question(difficulty):
             VarE = randint(20, 30)
             VarF = randint(12, 25) * VarE
             say(f"There's a total of {VarF} candies, and there are {VarE}"
-                " student in the class")
+                " students in the class")
             say("If the candy is split evenly to all students, how much candy"
                 " 🍬 will each of the student get?")
             correctAnswer = VarF / VarE
