@@ -7,7 +7,7 @@ def randomRewards():
     RNG = random.randint(1, 50)
     if 1 <= RNG <= 5:
         rewards = "Full Restore"
-    elif 6 <= RNG <= 40:
+    elif 6 <= RNG <= 32:
         rewards = "Minor Heal"
     else:
         rewards = "Reduce Difficulty"
