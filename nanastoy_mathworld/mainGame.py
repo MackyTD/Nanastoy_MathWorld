@@ -4,8 +4,6 @@ import loot
 import end
 import random
 import quiz
-import pyfiglet
-import time
 
 utils.say("You are studying for the upcoming calculus exam tomorrow")
 utils.say("You are struggling with it so much")
@@ -33,59 +31,45 @@ else:
     spawnedPortal = Portal[random.randint(0, 3)]
     PortalPosX = int(spawnedPortal.split(",")[0])
     PortalPosY = int(spawnedPortal.split(",")[1])
-    print(PortalPosX, PortalPosY)
+    dx = utils.distance(PlayerPosX, PortalPosY)
+    dy = utils.distance(PlayerPosY, PortalPosY)
+    movesToWin = dx + dy
     NoRewardDebuff = False
-    utils.say("------------------------------" + "\n"
-              "       Hello  Stanger!        " + "\n"
-              "------------------------------")
-    utils.say("Welcome to the Nanastoy's math world - the ultimate math"
-              " universe")
-    utils.say("What name should the math world know you as?")
-    player_name = input()
-    if player_name == "":
-        player_name = "Lazy"
-    utils.say(f"Hello {player_name}! Hope you are ready for your math"
-              " journey that you are about to embark")
-    utils.say("Before you start I wanted to ask you a question?")
-    utils.say("What do you call a mathematician who spent all summer"
-              " at the beach?")
-    time.sleep(3)
-    utils.say("Still guessing ... Let me tell you - A tan gent")
-    time.sleep(1)
-    utils.say(f"Hahaha, hope you got that ... Anyways {player_name} "
-              "Let's not waste more time... ")
-    utils.say("All I can do is to wish you luck and hope for you to"
-              " accomplish your mission")
-    utils.say("Let's begin ... ")
-    time.sleep(1)
+    utils.say("After you clicked the 'Yes' button on the website")
+          say("A very bright light appears on your screen")
+          say("And you can feel the exhaustion on your body like it's shutting down")
+          say("every black out...")
+          say("a while later, you started to feel yourself")
+          say("but...")
+          say("You just realized that something is weird")
+          say("You are not in your bedroom anymore")
+          say("but in the middle of the strange room")
+
     # cheatBreak = False
     end3break = False
 
     while PlayerHP > 0:
-        dx = utils.distance(PlayerPosX, PortalPosX)
-        dy = utils.distance(PlayerPosY, PortalPosY)
-        movesToWin = dx + dy
         if movesToWin == 0:
             utils.say("placeholder")
-            FinalAnswer = quiz.question("final")
-            playerAnswer = float(input().strip())
-            if playerAnswer == FinalAnswer:
-                end.ending3()
-                end3break = True
+            while True:
+                FinalAnswer = quiz.question("final")
+                playerAnswer = input().strip()
+                if playerAnswer == FinalAnswer:
+                    end.ending3()
+                    end3break = True
+                    break
+                else:
+                    PlayerHP -= 15
+            if end3break:
                 break
-            else:
-                PlayerHP -= 15
         elif ActionCount == ActionLimit:
             utils.say("placeholder")
             correctAnswer = quiz.question(difficulty)
-            PlayerAns = float(input().strip())
+            PlayerAns = input().strip()
             if PlayerAns == correctAnswer:
-                utils.say("something something you got this correctly")
-                #  mention that next time should be a little harder
                 PlayerHP += 10
-                if PlayerHP >= 45:
-                    PlayerHP = 45
-                utils.say(f"Your current HP is now {PlayerHP}")
+                if PlayerHP > 45:
+                    playerHP = 45
                 if NoRewardDebuff is False:
                     rewards = loot.randomRewards()
                     Inventory[rewards] += 1
@@ -95,10 +79,8 @@ else:
             else:
                 hitDamage = int(PlayerHP / 4)
                 PlayerHP -= hitDamage
-                utils.say(f"The professor hit you for {hitDamage}", "red")
-                utils.say("then he escaped")
-                time.sleep(0.5)
-                utils.say(f"Your current HP is now {PlayerHP}")
+                utils.say(f"The professor hit you for {hitDamage}")
+                utils.say("then it escaped")
             ActionCount = 0
             ActionLimit = random.randint(5, 7)
 
@@ -113,12 +95,15 @@ else:
                     PlayerPosX += 1
                 elif direction == "up":
                     PlayerPosY += 1
-                elif direction == "down":
+                else:
                     PlayerPosY -= 1
                 ActionCount += 1
                 NewRoom = utils.newRoom()
                 if NewRoom == "chest":
-                    utils.say("placeholder dialogue")
+                    utils.say("Oh look! you found a chest")
+                say("The chest contains both good items and bad items")
+                say("It all depends on you")
+                say("If you think you have good luck. Take a chance.")
                     open = utils.choice("Do you open the chest?", "Yes", "No")
                     if open == "yes":
                         recievedItem = loot.randomAll()
@@ -132,30 +117,41 @@ else:
                                 difficulty += 1
                         elif recievedItem == "Instant Damage":
                             instantDMG = random.randint(5, 10)
-                            PlayerHP -= instantDMG
-                            utils.say(f"Your current HP is now {PlayerHP}")
+                            playerHP -= instantDMG
                         elif recievedItem == "No Reward Debuff":
                             NoRewardDebuff = True
                         ActionCount += 1
                     else:
                         utils.say("placeholder")
                 elif NewRoom == "monster":
-                    utils.say("placeholder dialogue")
+                utils.say("Oh no...there's something coming closer to you")
+            say("You heard the sound of large footsteps")
+            say("It's a huge scary looking monster appears in front of you")
+            say("Your legs are suddenly freeze")
+            say("You can choose to fight or to dodge")
+            say("If you choose to fight")
+            say("the monster will give you some maths problem to answer")
+            say("If you answer wrong, the monster will attack you")
+            say("but if you answer it correctly")
+            say("you can attack and defeat the monster ะน gain experiences")
+            say("Or if you choose to run away")
+            say("You will have very less chance to dodge successfully")
+            say("You won't get any damage from the monster")
+            say("If your dodge is not successful")
+            say("You will be hit by the monster and lose random amount of HP")
                     action = utils.choice("Fight or Dodge?", "Fight", "Dodge")
                     if action == "fight":
                         correctAns = quiz.question(0)
-                        playerAns = float(input().strip())
+                        playerAns = input().strip()
                         if playerAns == correctAns:
                             PlayerHP += 5
-                            if PlayerHP > 45:
-                                PlayerHP = 45
+                            if PlayerHP > 60:
+                                playerHP = 60
                         else:
                             hitDamage = random.randint(6, 8)
                             PlayerHP -= hitDamage
                             utils.say(f"The monsters hit you for {hitDamage}")
                             utils.say("then it escaped")
-                            time.sleep(0.5)
-                            utils.say(f"Your current HP is now {PlayerHP}")
                     else:
                         a = random.randint(1, 3)
                         if a == 1:
@@ -165,22 +161,18 @@ else:
                             monsHitDamage = random.randint(6, 9)
                             PlayerHP -= monsHitDamage
                             utils.say("The monsters hit you"
-                                      f" for {monsHitDamage} damage", "red")
+                                      f"for {monsHitDamage}")
                             utils.say("then it escaped")
-                            time.sleep(0.5)
-                            utils.say(f"Your current HP is now {PlayerHP}")
                         ActionCount += 1
                 elif NewRoom == "map":
                     utils.say("placeholder dialogue")
                     read = utils.choice("Do you read the map?", "Yes", "No")
                     if read == "yes":
-                        utils.say(f"You require atleast {movesToWin-1} moves "
-                                  "to reach the portal")
+                        utils.say(f"You require atleast {movesToWin} moves to"
+                                  + "reach the portal")
                         ActionCount += 2
                     else:
                         utils.say("placeholder dialogue")
-                else:  # nothing room
-                    utils.say("placeholder dialogue")
             else:
                 while True:
                     utils.say("What item do you want to use?")
@@ -202,65 +194,22 @@ else:
                         break
                 if playerUse in Inventory:
                     loot.description(playerUse)
-                    confirmation = utils.choice("Are you sure you want to use"
-                                                " this item ?", "Yes", "No")
+                    confirmation = utils.choice("Are you sure?", "Yes", "No")
                     if confirmation == "yes":
                         Inventory[playerUse] -= 1
                         if playerUse == "Minor Heal":
-                            if PlayerHP < 45:
-                                randomHeal = random.randint(4, 8)
-                                PlayerHP += randomHeal
-                                utils.say(f"Your current HP is now {PlayerHP}")
-                                utils.say("Hope you feeling a little bit "
-                                          "better and re-vitalised")
-                                utils.say("Don't lose hope, you can do this")
-                            else:
-                                utils.say("You already have full health"
-                                          " points")
-                                utils.say("You feel tired for no reason")
-                                utils.say("Disappointing")
+                            randomHeal = random.randint(4, 8)
+                            playerHP += randomHeal
                         elif playerUse == "Full Restore":
-                            if PlayerHP < 45:
-                                PlayerHP = 45
-                                full_restore = pyfiglet.figlet_format(
-                                                                  "Congrats",
-                                                                  font="epic")
-                                utils.say("You have restored all your health"
-                                          " points!!!", "green")
-                                time.sleep(1)
-                                print(f"{full_restore}", end='')
-                                utils.say("Now be cautious... ")
-                                utils.say("You have gotten another life... "
-                                          "Live it wisely")
-                                utils.say("Stay focused and continue your"
-                                          " journey...")
-                            else:
-                                utils.say("You already have full health"
-                                          " points")
-                                utils.say("Seems like you just got tired "
-                                          "very easily without any reason")
-                                utils.say("Sad ... You just wasted the most "
-                                          "valuable item of the lootbox")
-                                utils.say("Hope this naive action of yours "
-                                          "doesn't cost you your life")
+                            playerHP = 45
                         elif playerUse == "Reduce Difficulty":
                             if difficulty > 1:
                                 difficulty -= 1
-                                utils.say("You don't like challenges"
-                                          "don't you?")
-                                utils.say("Hmm... Anyways its better to study"
-                                          "smart than hard right?")
-                                utils.say("You are now on a easy road kid")
-                                utils.say("I hope this easy can get"
-                                          "you out of here")
                             else:
                                 utils.say("You are already at the lowest"
-                                          " difficulty possible")
+                                          "difficulty possible")
                                 utils.say("But there will be no refunds of"
-                                          " your item that you just used")
-                                utils.say("Hahahahah"
-                                          "\nseems like destiny just played"
-                                          " you")
+                                          "your item that you just used")
     # you can change the dialogue a bit
                         ActionCount += 1
 
