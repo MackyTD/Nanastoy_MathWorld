@@ -144,7 +144,7 @@ else:
                     read = utils.choice("Do you read the map?", "Yes", "No")
                     if read == "yes":
                         utils.say(f"You require atleast {movesToWin} moves to"
-                                  + "reach the portal")
+                                  "reach the portal")
                         ActionCount += 2
                     else:
                         utils.say("placeholder dialogue")
