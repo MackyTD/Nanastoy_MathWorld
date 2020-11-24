@@ -165,7 +165,7 @@ else:
                             monsHitDamage = random.randint(6, 9)
                             PlayerHP -= monsHitDamage
                             utils.say("The monsters hit you"
-                                      f" for {monsHitDamage} damage")
+                                      f" for {monsHitDamage} damage", "red")
                             utils.say("then it escaped")
                             time.sleep(0.5)
                             utils.say(f"Your current HP is now {PlayerHP}")
@@ -255,12 +255,12 @@ else:
                                           "you out of here")
                             else:
                                 utils.say("You are already at the lowest"
-                                          "difficulty possible")
+                                          " difficulty possible")
                                 utils.say("But there will be no refunds of"
-                                          "your item that you just used")
+                                          " your item that you just used")
                                 utils.say("Hahahahah"
-                                          "\n seems like destiny just played"
-                                          "you")
+                                          "\nseems like destiny just played"
+                                          " you")
     # you can change the dialogue a bit
                         ActionCount += 1
 
