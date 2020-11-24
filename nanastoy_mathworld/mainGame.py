@@ -207,25 +207,42 @@ else:
                     if confirmation == "yes":
                         Inventory[playerUse] -= 1
                         if playerUse == "Minor Heal":
-                            randomHeal = random.randint(4, 8)
-                            PlayerHP += randomHeal
-                            utils.say(f"Your current HP is now {PlayerHP}")
-                            utils.say("Hope you feeling a little bit better"
-                                      "and re-vitalised")
-                            utils.say("Don't lose hope, you can do this")
+                            if PlayerHP < 45:
+                                randomHeal = random.randint(4, 8)
+                                PlayerHP += randomHeal
+                                utils.say(f"Your current HP is now {PlayerHP}")
+                                utils.say("Hope you feeling a little bit "
+                                          "better and re-vitalised")
+                                utils.say("Don't lose hope, you can do this")
+                            else:
+                                utils.say("You already have full health"
+                                          " points")
+                                utils.say("You feel tired for no reason")
+                                utils.say("Disappointing")
                         elif playerUse == "Full Restore":
-                            PlayerHP = 45
-                            full_restore = pyfiglet.figlet_format("Congrats",
+                            if PlayerHP < 45:
+                                PlayerHP = 45
+                                full_restore = pyfiglet.figlet_format(
+                                                                  "Congrats",
                                                                   font="epic")
-                            utils.say("You have restored all your health"
-                                      " points!!!", "green")
-                            time.sleep(1)
-                            print(f"{full_restore}", end='')
-                            utils.say("Now be cautious... ")
-                            utils.say("You have gotten another life... "
-                                      "Live it wisely")
-                            utils.say("Stay focused and continue your journey"
-                                      "...")
+                                utils.say("You have restored all your health"
+                                          " points!!!", "green")
+                                time.sleep(1)
+                                print(f"{full_restore}", end='')
+                                utils.say("Now be cautious... ")
+                                utils.say("You have gotten another life... "
+                                          "Live it wisely")
+                                utils.say("Stay focused and continue your"
+                                          " journey...")
+                            else:
+                                utils.say("You already have full health"
+                                          " points")
+                                utils.say("Seems like you just got tired "
+                                          "very easily without any reason")
+                                utils.say("Sad ... You just wasted the most "
+                                          "valuable item of the lootbox")
+                                utils.say("Hope this naive action of yours "
+                                          "doesn't cost you your life")
                         elif playerUse == "Reduce Difficulty":
                             if difficulty > 1:
                                 difficulty -= 1
