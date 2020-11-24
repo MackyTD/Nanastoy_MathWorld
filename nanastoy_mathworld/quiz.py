@@ -27,15 +27,15 @@ def question(difficulty):
             varG = randint(9, 17)
             varH = randint(5, 10)
             say(f"A pizza shop prepared {varF} Pepperoni Pizza and {varG}"
-                "Margherita Pizza." + "\n" + "Few customers enter and bought"
+                " Margherita Pizza." + "\n" + "Few customers enter and bought"
                 f" a total of {varH} Pepperoni Pizzas")
             say("How many Pepporoni Pizza do this shop have left?")
             correctAnswer = varF - varH
         elif varient_0 == 4:
             varI = randint(180, 230)
             varJ = randint(120, 175)
-            say("Bob has a big ant farm, and he decided to sell some of it"
-                f"If he started with {varI} ants and sold {varJ}")
+            say("Bob has a big ant farm, and he decided to sell some of it")
+            say(f"If he started with {varI} ants and sold {varJ}")
             say("How many ants do he have left")
             correctAnswer = varI - varJ
         else:

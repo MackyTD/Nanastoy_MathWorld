@@ -33,6 +33,7 @@ else:
     spawnedPortal = Portal[random.randint(0, 3)]
     PortalPosX = int(spawnedPortal.split(",")[0])
     PortalPosY = int(spawnedPortal.split(",")[1])
+    print(PortalPosX, PortalPosY)
     NoRewardDebuff = False
     utils.say("------------------------------" + "\n"
               "       Hello  Stanger!        " + "\n"
@@ -61,22 +62,19 @@ else:
     end3break = False
 
     while PlayerHP > 0:
-        dx = utils.distance(PlayerPosX, PortalPosY)
+        dx = utils.distance(PlayerPosX, PortalPosX)
         dy = utils.distance(PlayerPosY, PortalPosY)
         movesToWin = dx + dy
         if movesToWin == 0:
             utils.say("placeholder")
-            while True:
-                FinalAnswer = quiz.question("final")
-                playerAnswer = float(input().strip())
-                if playerAnswer == FinalAnswer:
-                    end.ending3()
-                    end3break = True
-                    break
-                else:
-                    PlayerHP -= 15
-            if end3break:
+            FinalAnswer = quiz.question("final")
+            playerAnswer = float(input().strip())
+            if playerAnswer == FinalAnswer:
+                end.ending3()
+                end3break = True
                 break
+            else:
+                PlayerHP -= 15
         elif ActionCount == ActionLimit:
             utils.say("placeholder")
             correctAnswer = quiz.question(difficulty)
@@ -85,8 +83,8 @@ else:
                 utils.say("something something you got this correctly")
                 #  mention that next time should be a little harder
                 PlayerHP += 10
-                if PlayerHP > 45:
-                    playerHP = 45
+                if PlayerHP >= 45:
+                    PlayerHP = 45
                 utils.say(f"Your current HP is now {PlayerHP}")
                 if NoRewardDebuff is False:
                     rewards = loot.randomRewards()
@@ -115,7 +113,7 @@ else:
                     PlayerPosX += 1
                 elif direction == "up":
                     PlayerPosY += 1
-                else:
+                elif direction == "down":
                     PlayerPosY -= 1
                 ActionCount += 1
                 NewRoom = utils.newRoom()
@@ -149,8 +147,8 @@ else:
                         playerAns = float(input().strip())
                         if playerAns == correctAns:
                             PlayerHP += 5
-                            if PlayerHP > 60:
-                                PlayerHP = 60
+                            if PlayerHP > 45:
+                                PlayerHP = 45
                         else:
                             hitDamage = random.randint(6, 8)
                             PlayerHP -= hitDamage
@@ -176,8 +174,8 @@ else:
                     utils.say("placeholder dialogue")
                     read = utils.choice("Do you read the map?", "Yes", "No")
                     if read == "yes":
-                        utils.say(f"You require atleast {movesToWin} moves to"
-                                  "reach the portal")
+                        utils.say(f"You require atleast {movesToWin-1} moves "
+                                  "to reach the portal")
                         ActionCount += 2
                     else:
                         utils.say("placeholder dialogue")
