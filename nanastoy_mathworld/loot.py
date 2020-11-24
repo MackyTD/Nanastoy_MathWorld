@@ -50,7 +50,7 @@ def randomAll():
             say("Ohh no!!")
             say("What can be worst than not getting a reward for your"
                 " hard work", "red")
-            say("Confused?")
+            say("Confused??")
             say("Well you just obtained the item that is going to stop you"
                 "from getting the good rewards from the lootbox even if you"
                 " answer the math question correctly next time and make the"
