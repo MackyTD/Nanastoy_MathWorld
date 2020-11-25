@@ -42,10 +42,29 @@ else:
     utils.say("You just realized that something is weird")
     utils.say("You are not in your bedroom anymore")
     utils.say("Instead, you find yourself in the middle of the strange room")
+    utils.say("Before you can get up and try to do anything, you heard a"
+              " mysterious voice")
+    utils.say("------------------------------" + "\n"
+              "       Hello  Stranger!        " + "\n"
+              "------------------------------")
+    utils.say("Welcome to the Nanastoy's math world - the ultimate math"
+              " universe")
+    time.sleep(1)
+    playerName = input("What should I call you? :")
+    utils.say(f"Ah! {playerName}, Welcome again to this magical world")
+    utils.say("I sure hope you are ready for your math journey that you"
+              " are about to embark")
+    utils.say(".....")
+    utils.say("Welp, Legends say that at the corner of this square room "
+              "will be something that you will need")
+    utils.say("")
+    utils.say("All I can do is to wish you luck and hope for you to"
+              " accomplish your mission and get what you wanted")
+    utils.say("Let's begin ... ")
+    time.sleep(1)
 
-    # some dialogue welcoming and explains the basic should be good here
-    # gotcheatBreak = False
-    # end3break = False
+# gotcheatBreak = False
+# end3break = False
 
     while PlayerHP > 0:
         dx = utils.distance(PlayerPosX, PortalPosY)
@@ -119,10 +138,10 @@ else:
                 if NewRoom == "chest":
                     utils.say("Oh look! you found a chest")
                     utils.say("The chest contains both good items and bad"
-                              " items")
+                              "items")
                     utils.say("It all depends on you")
                     utils.say("If you think you have good luck,"
-                              " Take a chance.")
+                              "Take a chance.")
                     open = utils.choice("Do you open the chest?", "Yes", "No")
                     if open == "yes":
                         recievedItem = loot.randomAll()
@@ -223,9 +242,7 @@ else:
                         break
                 if playerUse in Inventory:
                     loot.description(playerUse)
-                    confirmation = utils.choice("Are you sure though you"
-                                                " want to use this?", "Yes",
-                                                "No")
+                    confirmation = utils.choice("Are you sure?", "Yes", "No")
                     if confirmation == "yes":
                         Inventory[playerUse] -= 1
                         if playerUse == "Minor Heal":
