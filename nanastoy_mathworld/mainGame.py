@@ -43,6 +43,7 @@ else:
     utils.say("You are not in your bedroom anymore")
     utils.say("Instead, you find yourself in the middle of the strange room")
 
+    # some dialogue welcoming and explains the basic should be good here
     # gotcheatBreak = False
     # end3break = False
 
@@ -62,7 +63,7 @@ else:
             utils.say("But you want to prove yourself to him")
             utils.say("THIS FILLED YOU WITH D E T E R M I N A T I O N")
             FinalAnswer = quiz.question("final")
-            playerAnswer = input().strip()
+            playerAnswer = float(input().strip())
             if playerAnswer == FinalAnswer:
                 end.ending3()
                 # end3break = True
@@ -77,7 +78,7 @@ else:
                       "front of you")
             utils.say("You have no choice but to fight him...")
             correctAnswer = quiz.question(difficulty)
-            PlayerAns = input().strip()
+            PlayerAns = float(input().strip())
             if PlayerAns == correctAnswer:
                 utils.say("You hit the monster, hurting him, but it escaped"
                           " before you can get the final blow")
@@ -152,22 +153,20 @@ else:
                     utils.say("You can choose to fight or to dodge")
                     utils.say("If you choose to fight")
                     utils.say("the monster will give you some maths problem"
-                              "to answer")
+                              " to answer")
                     utils.say("If you answer wrong, the monster will"
-                              "attack you")
+                              " attack you")
                     utils.say("but if you answer it correctly")
                     utils.say("you will attack and defeat the monster"
-                              "and minorly regenerates your health")
-                    utils.say("Or if you choose to run away")
+                              " and minorly regenerates your health")
+                    utils.say("If you choose to run away,")
                     utils.say("You will have a small chance of"
                               "successfully dodging and take no damage")
-                    utils.say("However, if the dodge is not successful.")
-                    utils.say("You will get hit even harder by the monster")
                     time.sleep(1)
                     action = utils.choice("Fight or Dodge?", "Fight", "Dodge")
                     if action == "fight":
                         correctAns = quiz.question(0)
-                        playerAns = input().strip()
+                        playerAns = float(input().strip())
                         if playerAns == correctAns:
                             PlayerHP += 5
                             if PlayerHP > 45:
