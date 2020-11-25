@@ -50,7 +50,16 @@ else:
 
     while PlayerHP > 0:
         if movesToWin == 0:
-            utils.say("placeholder")
+            utils.say("You have reach the exit portal")
+                  say("The strange shadow approaches you")
+                  say("'I will not let you escape, human' said the shadow")
+                  say("The shadow walks out of the dark spot")
+                  say("The shadow appears to be Nanastoy")
+                  say("'To exit this world, you must prove yourself to me!'")
+                  say("'Prove yourself to me that you are smart enough'")
+                  say("You feel like this will be challenging for you")
+                  say("But you want to prove yourself to him")
+                  say("THIS FILLED YOU WITH D E T E R M I N A T I O N")
             while True:
                 FinalAnswer = quiz.question("final")
                 playerAnswer = input().strip()
@@ -63,7 +72,8 @@ else:
             if end3break:
                 break
         elif ActionCount == ActionLimit:
-            utils.say("placeholder")
+            utils.say("You have reached you moves limit")
+                  say("You will be forced to take on the math monster")
             correctAnswer = quiz.question(difficulty)
             PlayerAns = input().strip()
             if PlayerAns == correctAnswer:
@@ -122,7 +132,8 @@ else:
                             NoRewardDebuff = True
                         ActionCount += 1
                     else:
-                        utils.say("placeholder")
+                        utils.say("You decided not to open the chest")
+                              say("Guess you are not brave enough to open it")
                 elif NewRoom == "monster":
                 utils.say("Oh no...there's something coming closer to you")
             say("You heard the sound of large footsteps")
@@ -165,14 +176,17 @@ else:
                             utils.say("then it escaped")
                         ActionCount += 1
                 elif NewRoom == "map":
-                    utils.say("placeholder dialogue")
+                    utils.say("This is the map to the exit portal")
+                          say("After you read the map")
+                          say("It will tell you how many moves to reach the portal")
                     read = utils.choice("Do you read the map?", "Yes", "No")
                     if read == "yes":
                         utils.say(f"You require atleast {movesToWin} moves to"
                                   + "reach the portal")
                         ActionCount += 2
                     else:
-                        utils.say("placeholder dialogue")
+                        utils.say("You decided not to look at it")
+                              say("You want it to be challenging, eh?")
             else:
                 while True:
                     utils.say("What item do you want to use?")
