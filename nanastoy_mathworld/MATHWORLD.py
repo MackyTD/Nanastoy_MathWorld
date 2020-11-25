@@ -1,8 +1,8 @@
-import utils
-import loot
-import end
+from . import utils
+from . import loot
+from . import end
 import random
-import quiz
+from . import quiz
 import time
 import pyfiglet
 
@@ -14,7 +14,8 @@ def start():
     utils.say("You decided to lookup for the practice problem on the internet")
     utils.say("You spend a very long time looking for a good practice website")
     utils.say("You found a mysterious website called 'Nanastoy's math world'")
-    utils.say("You thought to yourself 'This is kinda werid, should I visit this?'"
+    utils.say("You thought to yourself 'This is kinda werid, should I visit"
+              "this?'"
               )
     LinkClick = utils.choice("Click the link to this website?", "Yes", "No")
     if LinkClick == "no":
@@ -45,7 +46,8 @@ def start():
         utils.say("but...")
         utils.say("You just realized that something is weird")
         utils.say("You are not in your bedroom anymore")
-        utils.say("Instead, you find yourself in the middle of the strange room")
+        utils.say("Instead, you find yourself in the middle of the strange"
+                  "room")
         utils.say("Before you can get up and try to do anything, you heard a"
                   " mysterious voice")
         utils.say("------------------------------" + "\n"
@@ -80,7 +82,8 @@ def start():
                 utils.say("'I will not let you escape, human' said the shadow")
                 utils.say("The shadow walks out of the dark spot")
                 utils.say("The shadow appears to be Nanastoy")
-                utils.say("'To exit this world, you must prove yourself to me!'")
+                utils.say("'To exit this world, you must prove yourself to me"
+                          "!")
                 utils.say("'Prove yourself to me once more time "
                           "that you are smart enough'")
                 utils.say("You feel like this will be challenging for you")
@@ -104,8 +107,8 @@ def start():
                 correctAnswer = quiz.question(difficulty)
                 PlayerAns = float(input().strip())
                 if PlayerAns == correctAnswer:
-                    utils.say("You hit the professor, but he dodges and escape "
-                              "before you can try to get another hit in.")
+                    utils.say("You hit the professor, but he dodges and "
+                              "escape before you can try to get another hit in.")
                     utils.say("Though, he does leave some stuff behind for you"
                               " to collect")
                     PlayerHP += 10

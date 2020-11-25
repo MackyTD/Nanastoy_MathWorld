@@ -1,5 +1,5 @@
 import random
-from utils import say
+from .utils import say
 import pyfiglet
 import time
 
