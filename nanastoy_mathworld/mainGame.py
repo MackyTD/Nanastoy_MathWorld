@@ -4,7 +4,6 @@ import end
 import random
 import quiz
 import time
-import pyfiglet
 
 utils.say("You are studying for the upcoming calculus exam tomorrow")
 utils.say("You are struggling with it so much")
@@ -68,7 +67,7 @@ else:
 # end3break = False
 
     while PlayerHP > 0:
-        dx = utils.distance(PlayerPosX, PortalPosY)
+        dx = utils.distance(PlayerPosX, PortalPosX)
         dy = utils.distance(PlayerPosY, PortalPosY)
         movesToWin = dx + dy - 1
         if movesToWin == 0:
@@ -78,7 +77,8 @@ else:
             utils.say("The shadow walks out of the dark spot")
             utils.say("The shadow appears to be Nanastoy")
             utils.say("'To exit this world, you must prove yourself to me!'")
-            utils.say("'Prove yourself to me that you are smart enough'")
+            utils.say("'Prove yourself to me once more time "
+                      "that you are smart enough'")
             utils.say("You feel like this will be challenging for you")
             utils.say("But you want to prove yourself to him")
             utils.say("THIS FILLED YOU WITH D E T E R M I N A T I O N")
@@ -94,15 +94,16 @@ else:
                 PlayerHP -= 15
                 time.sleep(3)
         elif ActionCount == ActionLimit:
-            utils.say("Professor's right hand man has appeared in"
+            utils.say("The Professor has appeared in"
                       "front of you")
             utils.say("You have no choice but to fight him...")
             correctAnswer = quiz.question(difficulty)
             PlayerAns = float(input().strip())
             if PlayerAns == correctAnswer:
-                utils.say("You hit the monster, hurting him, but it escaped"
-                          " before you can get the final blow")
-                utils.say("However, it left some stuff behind to collect!")
+                utils.say("You hit the professor, but he dodges and escape "
+                          "before you can try to get another hit in.")
+                utils.say("Though, he does leave some stuff behind for you"
+                          " to collect")
                 PlayerHP += 10
                 if PlayerHP > 45:
                     PlayerHP = 45
@@ -247,60 +248,14 @@ else:
                     if confirmation == "yes":
                         Inventory[playerUse] -= 1
                         if playerUse == "Minor Heal":
-                            if PlayerHP < 45:
-                                randomHeal = random.randint(4, 8)
-                                PlayerHP += randomHeal
-                                utils.say(f"Your current HP is now {PlayerHP}")
-                                utils.say("Hope you feeling a little bit "
-                                          "better and re-vitalised")
-                                utils.say("Don't lose hope, you can do this")
-                            else:
-                                utils.say("You already have full health"
-                                          " points")
-                                utils.say("You feel tired for no reason")
-                                utils.say("Disappointing")
-                    elif playerUse == "Full Restore":
-                        if PlayerHP < 45:
+                            randomHeal = random.randint(5, 10)
+                            PlayerHP += randomHeal
+                        elif playerUse == "Full Restore":
                             PlayerHP = 45
-                            full_restore = pyfiglet.figlet_format(
-                                                                 "Congrats",
-                                                                 font="epic")
-                            utils.say("You have restored all your health"
-                                      " points!!!", "green")
-                            time.sleep(1)
-                            print(f"{full_restore}", end='')
-                            utils.say("Now be cautious... ")
-                            utils.say("You have gotten another life... "
-                                      "Live it wisely")
-                            utils.say("Stay focused and continue your"
-                                      " journey...")
-                        else:
-                            utils.say("You already have full health"
-                                      " points")
-                            utils.say("Seems like you just got tired "
-                                      "very easily without any reason")
-                            utils.say("Sad ... You just wasted the most "
-                                      "valuable item of the lootbox")
-                            utils.say("Hope this naive action of yours "
-                                      "doesn't cost you your life")
-                    elif playerUse == "Reduce Difficulty":
-                        if difficulty > 1:
+                        elif playerUse == "Reduce Difficulty":
                             difficulty -= 1
-                            utils.say("You don't like challenges"
-                                      "don't you?")
-                            utils.say("Hmm... Anyways its better to study"
-                                      "smart than hard right?")
-                            utils.say("You are now on a easy road kid")
-                            utils.say("I hope this easy can get"
-                                      "you out of here")
-                        else:
-                            utils.say("You are already at the lowest"
-                                      " difficulty possible")
-                            utils.say("But there will be no refunds of"
-                                      " your item that you just used")
-                            utils.say("Hahahahah"
-                                      "\nseems like destiny just played"
-                                      " you")
+                            if difficulty < 1:
+                                difficulty = 1
                         ActionCount += 1
 
     end.ending2()
