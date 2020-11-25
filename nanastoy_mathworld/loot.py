@@ -18,8 +18,8 @@ def randomRewards():
 
 
 def randomAll():
-    LuckTest = random.randint(1, 2)
-    if LuckTest == 1:
+    LuckTest = random.randint(1, 5)
+    if LuckTest <= 2:
         recievedItem = randomRewards()
         return recievedItem
     else:
