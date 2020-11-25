@@ -55,9 +55,9 @@ else:
     utils.say("I sure hope you are ready for your math journey that you"
               " are about to embark")
     utils.say(".....")
-    utils.say("Welp, Legends say that at the corner of this square room "
+    utils.say("Legends say that at the corner of this square room "
               "will be something that you will need")
-    utils.say("")
+    utils.say("However, there're also many obstacle in your path")
     utils.say("All I can do is to wish you luck and hope for you to"
               " accomplish your mission and get what you wanted")
     utils.say("Let's begin ... ")
