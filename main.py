@@ -27,10 +27,12 @@ License : AGPLv3 or later
 Usage:
     main.py
 """
+from nanastoy_mathworld.MATHWORLD import start
 
 
 def main():
-    """start?"""
+    """Start"""
+    start()
 
 
 if __name__ == "__main__":
