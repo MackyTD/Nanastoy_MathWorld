@@ -51,14 +51,14 @@ else:
     utils.say("Welcome to the Nanastoy's math world - the ultimate math"
               " universe")
     time.sleep(1)
-    playerName = input("What should I call you? :")
+    playerName = input("What should I call you?: ")
     utils.say(f"Ah! {playerName}, Welcome again to this magical world")
     utils.say("I sure hope you are ready for your math journey that you"
               " are about to embark")
     utils.say(".....")
     utils.say("Legends say that at the corner of this square room "
               "will be something that you will need")
-    utils.say("However, there're also many obstacle in your path")
+    utils.say("However, there're also many obstacles in your path")
     utils.say("All I can do is to wish you luck and hope for you to"
               " accomplish your mission and get what you wanted")
     utils.say("Let's begin ... ")
@@ -183,7 +183,7 @@ else:
                               " and minorly regenerates your health")
                     utils.say("If you choose to run away,")
                     utils.say("You will have a small chance of"
-                              "successfully dodging and take no damage")
+                              " successfully dodging and take no damage")
                     time.sleep(1)
                     action = utils.choice("Fight or Dodge?", "Fight", "Dodge")
                     if action == "fight":
@@ -207,19 +207,19 @@ else:
                             monsHitDamage = random.randint(6, 9)
                             PlayerHP -= monsHitDamage
                             utils.say("The monsters hit you"
-                                      f"for {monsHitDamage}")
+                                      f" for {monsHitDamage}")
                             utils.say("then it escaped")
                         ActionCount += 1
                 elif NewRoom == "map":
                     utils.say("You found some sort of a map in the room")
                     utils.say("Reading it should be useful to pinpoint your"
-                              "location")
+                              " location")
                     utils.say("However, It can take a long time to read it"
-                              "as there are some pieces missing")
+                              " as there are some pieces missing")
                     read = utils.choice("Do you read the map?", "Yes", "No")
                     if read == "yes":
                         utils.say(f"You require atleast {movesToWin} moves to"
-                                  + "reach the portal")
+                                  + " reach the portal")
                         ActionCount += 2
                     else:
                         utils.say("You decided not to look at it")
@@ -245,7 +245,9 @@ else:
                         break
                 if playerUse in Inventory:
                     loot.description(playerUse)
-                    confirmation = utils.choice("Are you sure?", "Yes", "No")
+                    confirmation = utils.choice("Are you sure though"
+                                                "you want to use this item?",
+                                                "Yes", "No")
                     if confirmation == "yes":
                         Inventory[playerUse] -= 1
                         if playerUse == "Minor Heal":
@@ -288,12 +290,21 @@ else:
                             if difficulty > 1:
                                 difficulty -= 1
                                 utils.say("You don't like challenges"
+<<<<<<< HEAD
                                           "don't you?")
                                 utils.say("Hmm... Anyways its better to study"
                                           "smart than hard right?")
                                 utils.say("You are now on a easy road kid")
                                 utils.say("I hope this easy can get"
                                           "you out of here")
+=======
+                                          " don't you?")
+                                utils.say("Hmm... Anyways its better to study"
+                                          " smart than hard right?")
+                                utils.say("You are now on a easy road kid")
+                                utils.say("I hope this easy can get"
+                                          " you out of here")
+>>>>>>> 98599e08a58d2a38ee18b50e888f345dac608b2b
                             else:
                                 utils.say("You are already at the lowest"
                                           " difficulty possible")
