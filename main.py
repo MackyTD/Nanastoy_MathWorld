@@ -31,7 +31,6 @@ from nanastoy_mathworld.MATHWORLD import start
 
 
 def main():
-    """Start"""
     start()
 
 
