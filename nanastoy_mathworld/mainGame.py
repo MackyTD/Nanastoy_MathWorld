@@ -118,10 +118,10 @@ else:
                 if NewRoom == "chest":
                     utils.say("Oh look! you found a chest")
                     utils.say("The chest contains both good items and bad"
-                              "items")
+                              " items")
                     utils.say("It all depends on you")
                     utils.say("If you think you have good luck,"
-                              "Take a chance.")
+                              " Take a chance.")
                     open = utils.choice("Do you open the chest?", "Yes", "No")
                     if open == "yes":
                         recievedItem = loot.randomAll()
@@ -224,7 +224,9 @@ else:
                         break
                 if playerUse in Inventory:
                     loot.description(playerUse)
-                    confirmation = utils.choice("Are you sure?", "Yes", "No")
+                    confirmation = utils.choice("Are you sure though you"
+                                                " want to use this?", "Yes",
+                                                "No")
                     if confirmation == "yes":
                         Inventory[playerUse] -= 1
                         if playerUse == "Minor Heal":

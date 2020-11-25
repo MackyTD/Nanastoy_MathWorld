@@ -63,7 +63,7 @@ def randomAll():
             time.sleep(1)
             print(f"{no_rewards}", end='')
             say("HAHAHAHA, your bad luck")
-            say("You just wasted your action")
+            say("You just wasted your action\n")
         return debuff
 
 
