@@ -176,11 +176,6 @@ else:
                     utils.say("If you choose to fight")
                     utils.say("the monster will give you some maths problem"
                               " to answer")
-                    utils.say("If you answer wrong, the monster will"
-                              " attack you")
-                    utils.say("but if you answer it correctly")
-                    utils.say("you will attack and defeat the monster"
-                              " and minorly regenerates your health")
                     utils.say("If you choose to run away,")
                     utils.say("You will have a small chance of"
                               " successfully dodging and take no damage")
@@ -290,21 +285,12 @@ else:
                             if difficulty > 1:
                                 difficulty -= 1
                                 utils.say("You don't like challenges"
-<<<<<<< HEAD
-                                          "don't you?")
-                                utils.say("Hmm... Anyways its better to study"
-                                          "smart than hard right?")
-                                utils.say("You are now on a easy road kid")
-                                utils.say("I hope this easy can get"
-                                          "you out of here")
-=======
                                           " don't you?")
                                 utils.say("Hmm... Anyways its better to study"
                                           " smart than hard right?")
                                 utils.say("You are now on a easy road kid")
                                 utils.say("I hope this easy can get"
                                           " you out of here")
->>>>>>> 98599e08a58d2a38ee18b50e888f345dac608b2b
                             else:
                                 utils.say("You are already at the lowest"
                                           " difficulty possible")
